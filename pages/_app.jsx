@@ -7,8 +7,8 @@ function MyApp({ Component, pageProps }) {
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.any,
-  pageProps: PropTypes.any,
+  Component: PropTypes.elementType,
+  pageProps: PropTypes.object,
 };
 
 export default MyApp;
