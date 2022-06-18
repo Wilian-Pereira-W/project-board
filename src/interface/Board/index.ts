@@ -14,3 +14,7 @@ export interface BoardProps {
   };
   data: string;
 }
+
+export interface TaskListProps {
+  data: string;
+}
