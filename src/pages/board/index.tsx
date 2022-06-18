@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import styles from './styles.module.scss';
 import { FiPlus, FiCalendar, FiEdit2, FiTrash } from 'react-icons/fi';
+import { getSession } from 'next-auth/react';
+import { BoardProps } from '../../interface/Board';
+import firebase from '../../services/firebaseConnection';
 
-export default function Board() {
+export default function Board({ user }: BoardProps) {
+  const [task, setTask] = useState('');
+
+  const handleAddTask = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (task === '') {
+      alert('Preencha alguma tarefa!');
+    }
+
+    await firebase
+      .firestore()
+      .collection('tarefas')
+      .add({
+        created: new Date(),
+        tarefa: task,
+        userId: user.id,
+        nome: user.nome,
+      })
+      .then(() => {
+        console.log('sucesso');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <Head>
         <title>Minhas tarefas - Board</title>
       </Head>
       <main className={styles.container}>
-        <form>
-          <input type="text" placeholder="Digite sua tarefa..." />
+        <form onSubmit={handleAddTask}>
+          <input
+            type="text"
+            placeholder="Digite sua tarefa..."
+            value={task}
+            onChange={({ target }) => setTask(target.value)}
+          />
           <button type="submit">
             <FiPlus size={25} color="#17181F" />
           </button>
@@ -43,3 +77,26 @@ export default function Board() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (!session?.id) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  const user = {
+    nome: session?.user.name,
+    id: session?.id,
+  };
+  return {
+    props: {
+      user,
+    },
+  };
+};
