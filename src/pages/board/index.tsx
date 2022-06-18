@@ -19,6 +19,7 @@ export default function Board({ user, data }: BoardProps) {
 
     if (task === '') {
       alert('Preencha alguma tarefa!');
+      return;
     }
 
     if (taskEdit) {
