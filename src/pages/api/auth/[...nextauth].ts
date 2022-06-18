@@ -13,4 +13,29 @@ export default NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      try {
+        return {
+          ...session,
+          id: token.sub,
+        };
+      } catch (error) {
+        return {
+          ...session,
+          id: null,
+        };
+      }
+    },
+    async signIn(user) {
+      const { email } = user;
+      console.log(email);
+      try {
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
+  },
 });
