@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 import { FiPlus, FiCalendar, FiEdit2, FiTrash, FiX } from 'react-icons/fi';
 import { getSession } from 'next-auth/react';
 import { BoardProps, TaskList } from '../../interface/Board';
-import firebase from '../../services/firebaseConnection';
+import firebase from '../../services/firebase.config';
 import { format } from 'date-fns';
 import Link from 'next/link';
 
