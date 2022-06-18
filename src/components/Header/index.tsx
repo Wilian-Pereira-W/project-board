@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import Image from 'next/image';
+import logo from '../../../public/images/logo.svg';
 import { SignInButton } from '../SignInButton';
 
 export function Header() {
@@ -8,7 +10,9 @@ export function Header() {
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <Link href="/">
-          <img src="/images/logo.svg" alt="Logo Meu board" />
+          <a>
+            <Image src={logo} alt="Logo Meu board" />
+          </a>
         </Link>
 
         <nav>
