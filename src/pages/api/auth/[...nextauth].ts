@@ -27,9 +27,7 @@ export default NextAuth({
         };
       }
     },
-    async signIn(user) {
-      const { email } = user;
-      console.log(email);
+    async signIn() {
       try {
         return true;
       } catch (error) {
