@@ -20,6 +20,9 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
+
+  }
+  div{
     margin-right: 1rem;
   }
 
@@ -33,5 +36,17 @@
 
   svg.closeIcon{
     margin-left: 1rem;
+  }
+}
+
+@media (max-width: 428px){
+  .signInButton{
+    div{
+      margin-right: 0.1rem;
+    }
+
+    svg:first-child{
+      margin-right: 0.2rem;
+    }
   }
 }
