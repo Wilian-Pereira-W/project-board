@@ -109,7 +109,14 @@
 
 @media (max-width: 428px){
   .container{
-    max-width: 410px;
+    max-width: 400px;
     margin: 2rem auto;
+  }
+
+  .taskList{
+    p{
+      word-break: break-all;
+      text-align: justify;
+    }
   }
 }
