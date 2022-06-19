@@ -36,3 +36,10 @@
     }
   }
 }
+
+@media (max-width: 428px){
+  .container{
+    max-width: 410px;
+    margin: 2rem auto;
+  }
+}
