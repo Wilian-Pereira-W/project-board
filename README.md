@@ -1,14 +1,14 @@
 # Board
 
-## Um jogo para treinar adição, subtração e multiplicação. Divirta-se.
+## Projeto de To Do List. Onde você pode criar seu quadro de tarefas.
 
 ## 1 - Clone o repositório 'SSH'.
 
-###  git clone git@github.com:Wilian-Pereira-W/project-math-game.git
+###  git clone git@github.com:Wilian-Pereira-W/project-board.git
 
 ## 2 - Navegue para pasta do repositório que você acabou de clonar.
 
-###   cd project-math-game
+###   cd project-board
 
 ## 3 - Instale as dependências do projeto.
 
@@ -20,5 +20,5 @@
 
 ## 5 - Link do site.
 
-###  https://board-eta.vercel.app/
+###  https://board-wilian-pereira-w.vercel.app/
 
